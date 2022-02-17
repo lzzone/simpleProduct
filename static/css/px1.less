@@ -1,0 +1,51 @@
+// @otherStyle 其他样式如圆角
+.px1-el(@color) {
+  position: relative;
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform-origin: left top;
+    -webkit-transform-origin: left top;
+    border: 1px solid @color;
+    box-sizing: border-box;
+  }
+  @media screen and (min-device-pixel-ratio: 3) {
+    &:after {
+      transform: scale(0.33);
+      -webkit-transform: scale(0.33);
+    }
+  }
+}
+
+.px1-el-side(@color, @side1, @side2, @side3) {
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform-origin: left top;
+    -webkit-transform-origin: left top;    
+    border-@{side1}-width: 1px;
+    border-@{side2}-width: 1px;
+    border-@{side3}-width: 1px;
+    border-style: solid;
+    border-color: @color;
+    box-sizing: border-box;
+  }
+  @media screen and (min-device-pixel-ratio: 3) {
+    &:after {
+      transform: scale(0.33);
+      -webkit-transform: scale(0.33);
+    }
+  }
+}
